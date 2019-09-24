@@ -1,0 +1,280 @@
+/* 
+	Stylesheet
+
+
+	Variables:
+
+		Colors:
+
+			Interactive blue: #5F89C7
+			Green: #D5FFC6
+			Light blue: #C2F8FF
+			Dark blue: #A3DEFF
+			Yellow: #FDFFAE
+			Red: #FC0000
+	
+		Font-sizes:
+
+			Small (1em): 12px
+			Header menu: 1.2em
+			Article header: 3.5em
+			Drop-down menu header: 1.8em
+			Profits blocks header: 1.5em
+			Profits blocks text: 0.9em
+			Buttons: 2em
+			First-page attraction: 2.6em
+			First-page small text: 1.9em
+			First-page extra small text: 1.2em
+			Dropdown menus: 1.8em
+*/
+
+/* -------------- COMMON STYLES -------------- */
+
+body {
+	margin: 0;
+	font-size: 14px;
+}
+
+h1, h2, h3, button {
+	font-family: "Comfortaa", cursive;
+	font-weight: 700;
+}
+
+h1, h2, h3 {
+	color: #FC0000;
+}
+
+h1 {
+	font-size: 2.6em;
+}
+
+button {
+	color: #fff;
+	-webkit-border-radius: 0.5em;
+	        border-radius: 0.5em;
+	-webkit-box-shadow: none;
+	        box-shadow: none;
+	padding: 0.7em;
+	font-size: 2em;
+	border: none;
+	cursor: pointer;
+}
+
+p, span, li {
+	font-family: "Open Sans", sans-serif;
+	font-weight: 400;
+}                                                                
+
+.menu-dropdown li {
+	font-size: 1.8em;
+}
+
+.container {
+	padding-top: 0;
+	padding-bottom: 0;
+	-webkit-box-sizing: border-box;
+	   -moz-box-sizing: border-box;
+	        box-sizing: border-box;
+	margin: 0;
+	width: 100%;
+	white-space: normal;
+}
+
+.container-max {
+	padding-left: 10%;
+	padding-right: 10%;
+}
+
+.container-article {
+	padding-left: 20%;
+	padding-right: 20%;
+}
+
+.transition-el {
+	-webkit-transition: all .2s ease-in-out;
+	   -moz-transition: all .2s ease-in-out;
+	    -ms-transition: all .2s ease-in-out;
+	     -o-transition: all .2s ease-in-out;
+	        transition: all .2s ease-in-out;
+}
+
+.lightblue-page {
+	background-color: #C2F8FF; 
+}
+
+.green-page {
+	background-color: #D5FFC6;
+}
+
+.darkblue-page {
+	background-color: #A3DEFF;
+}
+
+.yellow-page {
+	background-color: #FDFFAE;
+}
+
+.red-background {
+	background: #FC0000;
+}
+
+.article-header {
+	margin-bottom: 0.7em;
+	display: inline-block;
+}
+
+.article-header h2 {
+	font-size: 3.2em;
+	margin-bottom: 0;
+	margin-top: 0;
+}
+
+.article-header span {
+	font-size: 1em;
+	margin-bottom: 0;
+}
+
+.text-center .half-page-column {
+	text-align: left;
+}
+
+.padding-height-10 {
+	padding-top: 10em;
+	padding-bottom: 10em;
+}
+
+.half-page-column {
+	display: inline-block;
+	vertical-align: top;
+	width: 50%;
+}
+
+.pre-text {
+	white-space: pre-line;
+}
+
+.full-width {
+	width: 100%;
+}
+
+.text-center {
+	text-align: center;
+}
+
+.article-header-center {
+	max-width: 70%;
+}
+
+.carousel {
+	width: 80%;
+	overflow: hidden;
+}
+
+.carousel-inner {
+	width: 10000px;
+}
+
+.carousel-item {
+	display: inline-block;
+}
+
+.carousel-button {
+	width: 0;
+	height: 0;
+	border-style: solid;
+	cursor: pointer;
+}
+
+.carousel, .carousel-button {
+	vertical-align: middle;
+	display: inline-block;
+}
+
+.carousel-button-left {
+	border-width: 2em 1em 2em 0;
+	border-color: transparent #5F89C7 transparent transparent;
+}
+
+.carousel-button-right {
+	border-width: 2em 0 2em 1em;
+	border-color: transparent transparent transparent #5F89C7;
+}
+
+.menu-dropdown {
+	margin-left: 0;
+	list-style: none;
+}
+
+.menu-dropdown li {
+	cursor: pointer;
+	margin-bottom: 0.69em;
+}
+
+.menu-dropdown li::before {
+	vertical-align: middle;
+	content: '';
+	display: inline-block;
+	width: 0;
+	height: 0;
+	border-style: solid;
+	border-width: 1em 0 1em 1.3em;
+	border-color: transparent transparent transparent #fff;
+}
+
+/* ------------- INDIVIDUAL STYLES ------------------ */
+
+header {
+	text-align: right;
+}
+
+.header-nav {
+	margin: 1.5em 0;
+}
+
+.header-nav li {
+	display: inline-block;
+	list-style-type: none;
+	padding-left: 1em;
+}
+
+.header-nav a {
+	font-size: 1.2em;
+	color: #000;
+	text-decoration: none;
+}
+
+.header-nav a:hover {
+	color: #333;
+}
+
+.first-page-block h2{
+	font-size: 1.9em;
+}
+
+.first-page-block:first-of-type h1, .first-page-block:first-of-type h2 {
+	margin: 0;
+}
+
+.first-page-block img {
+	width: 100%;
+	height: 18.75em;
+}
+
+.first-page-block button {
+	width: 100%;
+	margin-top: 1.25em;
+}
+
+.first-page-block span {
+	font-size: 1.2em;
+	padding-top: 2.08em;
+}
+
+.second-page .half-page-column {
+	vertical-align: middle;
+}
+
+.second-page-img {
+	height: 15em;
+	margin-top: 2.5em;
+}
