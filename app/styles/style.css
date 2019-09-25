@@ -32,7 +32,7 @@
 
 body {
 	margin: 0;
-	font-size: 14px;
+	font-size: 12px;
 }
 
 h1, h2, h3, button {
@@ -171,11 +171,13 @@ p, span, li {
 }
 
 .carousel-inner {
-	width: 10000px;
+	position: relative;
+	width: 10000%;
 }
 
 .carousel-item {
 	display: inline-block;
+	width: 1%;
 }
 
 .carousel-button {
@@ -219,6 +221,23 @@ p, span, li {
 	border-style: solid;
 	border-width: 1em 0 1em 1.3em;
 	border-color: transparent transparent transparent #fff;
+	-webkit-transition: transform .2s ease-in-out;
+	   -moz-transition: transform .2s ease-in-out;
+	    -ms-transition: transform .2s ease-in-out;
+	     -o-transition: transform .2s ease-in-out;
+	        transition: transform .2s ease-in-out;
+}
+
+.menu-dropdown-active::before {
+	-webkit-transform: rotate(90deg);
+	   -moz-transform: rotate(90deg);
+	    -ms-transform: rotate(90deg);
+	     -o-transform: rotate(90deg);
+	        transform: rotate(90deg);
+}
+
+.drop-down-display-none {
+	display: none;
 }
 
 /* ------------- INDIVIDUAL STYLES ------------------ */

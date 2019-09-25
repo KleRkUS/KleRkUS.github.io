@@ -1,26 +1,30 @@
-let carousels = document.getElementsByClassName('carousel-inner'),
+const dropDownButtons = document.getElementsByClassName('drop-down-button');
+
+let dropDownEls = [],
+	carousels = document.getElementsByClassName('carousel-inner'),
 	carouselButtons = document.getElementsByClassName('carousel-button'),
 	carouselsInfo = [],
 	newActiveCarouselItem;
 
-
-
-/*
-	
-	Функция устанавливает карусель на
-	первый элемент, собирает массив объектов
-	всех каруселей на странице
-
-*/
-
 window.onload = function () {
 	let carousel,
 		items;
+	for (let d = 0; d<dropDownButtons.length; d++) {
+
+		dropDownEls[d] = {
+			element: dropDownButtons[d].nextSibling.nextSibling
+		}
+
+		dropDownButtons[d].onclick = function () {
+			dropDownHandle(this, dropDownEls[d]);
+		}
+	}
+
 	for (let a = 0; a < carousels.length; a++) {
 		carousel = carousels[a];
 		items = carousel.getElementsByClassName('carousel-item');
 		for (let c = 0; c < items.length; c++) {
-			items[c].style.width = carousel.parentElement.offsetWidth + 'px';
+			//items[c].style.width = carousel.parentElement.offsetWidth + 'px';
 		}
 		carouselsInfo[a] = {
 			parent: carousel,
@@ -34,16 +38,15 @@ window.onload = function () {
 			carouselScroll(Number(this.getAttribute('scroll-index')), this.parentElement.children[1].children[0]);
 		}
 	}
+
 }
 
+function dropDownHandle(button, el) {
 
-/*
+	button.classList.toggle('menu-dropdown-active');
+	el.element.classList.toggle('drop-down-display-none');
 
-	Функция устанавливает новый элемент карусели
-	в зависимости от carousel-index у кнопки, обновляет 
-	индекс скролла у объекта карусели, скроллит к следующему элементу
-
-*/
+}
 
 function carouselScroll(increment, parent) {
 
