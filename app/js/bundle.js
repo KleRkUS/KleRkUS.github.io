@@ -12,7 +12,9 @@ window.onload = function () {
 	for (let d = 0; d<dropDownButtons.length; d++) {
 
 		dropDownEls[d] = {
-			element: dropDownButtons[d].nextSibling.nextSibling
+			element: dropDownButtons[d].nextSibling.nextSibling,
+			collapsed: false,
+			parent: dropDownButtons[d].parentElement
 		}
 
 		dropDownButtons[d].onclick = function () {
@@ -23,9 +25,6 @@ window.onload = function () {
 	for (let a = 0; a < carousels.length; a++) {
 		carousel = carousels[a];
 		items = carousel.getElementsByClassName('carousel-item');
-		for (let c = 0; c < items.length; c++) {
-			//items[c].style.width = carousel.parentElement.offsetWidth + 'px';
-		}
 		carouselsInfo[a] = {
 			parent: carousel,
 			index: 0,
@@ -43,6 +42,23 @@ window.onload = function () {
 
 function dropDownHandle(button, el) {
 
+	const buttons = button.parentElement.getElementsByTagName('li'),
+		  expandEl = button.parentElement.parentElement;
+	let counter = 0;
+
+	for (let l = 0; l < buttons.length; l++) {
+		if (buttons[l].classList.contains('menu-dropdown-active')) {
+			counter++;
+		}
+	}
+
+	console.log
+
+	if ((button.classList.contains('menu-dropdown-active') && counter == 1) || counter == 0) {
+		expandEl.classList.toggle('full-width');
+		expandEl.nextSibling.nextSibling.classList.toggle('drop-down-display-none');
+	}
+
 	button.classList.toggle('menu-dropdown-active');
 	el.element.classList.toggle('drop-down-display-none');
 
@@ -50,11 +66,12 @@ function dropDownHandle(button, el) {
 
 function carouselScroll(increment, parent) {
 
-	const carouselIndex = parent.getAttribute('carousel-index'),
+	const amountInRow = Number(parent.getAttribute('carousel-amount-inRow')) || 1,
+		  carouselIndex = parent.getAttribute('carousel-index'),
 		  currentActiveCarouselItemWidth = Number(carouselsInfo[carouselIndex].items[carouselsInfo[carouselIndex].index].offsetWidth);
 	let padding;
 	
-	if (carouselsInfo[carouselIndex].index+increment == carouselsInfo[carouselIndex].items.length 
+	if (carouselsInfo[carouselIndex].index+increment == carouselsInfo[carouselIndex].items.length - (amountInRow - 1) 
 		|| carouselsInfo[carouselIndex].index+increment == -1) return 0;
 	
 	carouselsInfo[carouselIndex].index += increment;
@@ -63,7 +80,6 @@ function carouselScroll(increment, parent) {
 
 	const newActiveCarouselItemWidth = Number(newActiveCarouselItem.offsetWidth);
 
-	console.log(carouselsInfo[carouselIndex].index);
 	padding = (currentActiveCarouselItemWidth/2 + newActiveCarouselItemWidth/2) * carouselsInfo[carouselIndex].index * -1 + 'px';
 	carouselsInfo[carouselIndex].parent.style.left = padding;
 
