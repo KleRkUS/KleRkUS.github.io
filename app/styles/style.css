@@ -174,8 +174,8 @@ p, span, li {
 	text-align: left;
 }
 
-.half-page-column img {
-	width: 100%;
+.page-second-row .half-page-column img {
+	width: 95%;
 }
 
 .pre-text {
