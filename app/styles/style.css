@@ -75,6 +75,7 @@ menu {
 
 a.button {
 	background-color: #5F89C7;
+	font-size: 1.7em;
 }
 
 p, span, li {
@@ -171,6 +172,10 @@ p, span, li {
 
 .half-page-column * {
 	text-align: left;
+}
+
+.half-page-column img {
+	width: 100%;
 }
 
 .pre-text {
