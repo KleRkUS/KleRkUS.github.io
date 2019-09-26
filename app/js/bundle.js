@@ -1,12 +1,17 @@
-const dropDownButtons = document.getElementsByClassName('drop-down-button');
+const carousels = document.getElementsByClassName('carousel-inner'),
+	  carouselButtons = document.getElementsByClassName('carousel-button'),
+	  formsButtons = document.getElementsByName('form-button'), 
+	  formsCloseButtons = document.getElementsByClassName('button-close-form'),
+	  dropDownButtons = document.getElementsByClassName('drop-down-button');
 
 let dropDownEls = [],
-	carousels = document.getElementsByClassName('carousel-inner'),
-	carouselButtons = document.getElementsByClassName('carousel-button'),
 	carouselsInfo = [],
 	newActiveCarouselItem;
 
 window.onload = function () {
+
+	document.getElementById('filter').style.height = document.body.offsetHeight + 'px';
+
 	let carousel,
 		items;
 	for (let d = 0; d<dropDownButtons.length; d++) {
@@ -38,6 +43,36 @@ window.onload = function () {
 		}
 	}
 
+	for (let g = 0; g < formsButtons.length; g++) {
+		formsButtons[g].onclick = function() {
+			formOpening(this.getAttribute('data-form'));
+		}
+	}
+
+	for (let n = 0; n < formsCloseButtons.length; n++) {
+		formsCloseButtons[n].onclick = function() {
+			formClosing(this.getAttribute('data-form'));
+		}
+	}
+
+	document.getElementById('burger-button').onclick = function () {
+		this.classList.toggle('fa-times');
+		filter.classList.toggle('display-none');
+		document.getElementById('header-nav').classList.toggle('media-display-none');
+	}
+
+}
+
+function formOpening(data) {
+	var form = document.getElementsByName(data);
+	form[0].style.display = 'inline-block';
+	filter.classList.toggle('display-none');
+}
+
+function formClosing(data) {
+	var form = document.getElementsByName(data);
+	form[0].style.display = 'none';
+	filter.classList.toggle('display-none');
 }
 
 function dropDownHandle(button, el) {
@@ -66,11 +101,17 @@ function dropDownHandle(button, el) {
 
 function carouselScroll(increment, parent) {
 
-	const amountInRow = Number(parent.getAttribute('carousel-amount-inRow')) || 1,
-		  carouselIndex = parent.getAttribute('carousel-index'),
+	const carouselIndex = parent.getAttribute('carousel-index'),
 		  currentActiveCarouselItemWidth = Number(carouselsInfo[carouselIndex].items[carouselsInfo[carouselIndex].index].offsetWidth);
-	let padding;
+	let amountInRow,
+		padding;
 	
+	if (document.body.offsetWidth > 750 || parent.classList.contains('carousel-media-decrease')) {
+		amountInRow = Number(parent.getAttribute('carousel-amount-inRow')) || 1;
+	} else {
+		amountInRow = 1;
+	}
+
 	if (carouselsInfo[carouselIndex].index+increment == carouselsInfo[carouselIndex].items.length - (amountInRow - 1) 
 		|| carouselsInfo[carouselIndex].index+increment == -1) return 0;
 	
