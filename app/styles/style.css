@@ -23,7 +23,7 @@
 			Profits blocks header: 1.5em
 			Profits blocks text: 0.9em
 			Buttons: 2em
-			First-page attraction: 2.6em
+			First-page attraction: 3.5em
 			First-page small text: 1.9em
 			First-page extra small text: 1.2em
 			Dropdown menus: 1.8em
@@ -51,7 +51,11 @@ h1, h2, h3 {
 }
 
 h1 {
-	font-size: 2.6em;
+	font-size: 3.5em;
+}
+
+p {
+	font-size: 1.2em;
 }
 
 button, a.button {
@@ -762,8 +766,16 @@ header {
 		width: 80%;
 	}
 
-	.fifth-page .carousel-item {
+	.fifth-page .carousel-item, .goods-part .carousel-item {
 		width: 1%;
+	}
+
+	.fifth-page .half-page-column:nth-child(2) {
+		text-align: center;
+	}
+
+	.fifth-page .half-page-column:nth-child(2) a {
+		font-size: 2em;
 	}
 
 	.carousel-button-left {
@@ -860,7 +872,7 @@ header {
 
 	.form {
 		width: 80%;
-		top: 40%;
+		top: 30%;
 		left: 5%;
 	}
 

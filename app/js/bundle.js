@@ -106,10 +106,10 @@ function carouselScroll(increment, parent) {
 	let amountInRow,
 		padding;
 	
-	if (document.body.offsetWidth > 750 || parent.classList.contains('carousel-media-decrease')) {
-		amountInRow = Number(parent.getAttribute('carousel-amount-inRow')) || 1;
-	} else {
+	if (document.body.offsetWidth < 750 || parent.classList.contains('carousel-media-decrease')) {
 		amountInRow = 1;
+	} else {
+		amountInRow = Number(parent.getAttribute('carousel-amount-inRow')) || 1;
 	}
 
 	if (carouselsInfo[carouselIndex].index+increment == carouselsInfo[carouselIndex].items.length - (amountInRow - 1) 
