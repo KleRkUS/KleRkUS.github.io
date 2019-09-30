@@ -183,6 +183,23 @@ p, span, li {
 	width: 95%;
 }
 
+.page-second-row .half-page-column {
+	vertical-align: middle;
+}
+
+.page-second-row input, .page-second-row textarea {
+	-webkit-box-sizing: border-box;
+	   -moz-box-sizing: border-box;
+	        box-sizing: border-box;
+}
+
+.page-second-row button {
+	width: 100%;
+	text-align: center;
+	margin-top: 1em;
+	padding: .3em 0;
+}
+
 .pre-text {
 	white-space: pre-line;
 }
@@ -559,17 +576,20 @@ header {
 	font-size: 	2em;
 }
 
-.goods-part span {
-	font-size: 1em;
+.goods-part .carousel-item span {
+	margin-top: 1em;
+	display: inline-block;
+	font-size: 1.5em;
 	font-family: "Comfortaa", cursive;
 }
 
 .goods-part p {
-	font-size: .7em;
+	font-size: 1.2em;
 }
 
 .goods-part button {
-	font-size: 	1.3em;
+	font-size: 	1.7em;
+	margin-top: .5em;
 }
 
 .order-form input, .order-form textarea {
@@ -778,13 +798,13 @@ header {
 		font-size: 2em;
 	}
 
-	.carousel-button-left {
-		border-width: 5em 3em 5em 0;
+	.carousel-button-left, .menu-dropdown .carousel-button-left {
+		border-width: 3em 1.5em 3em 0;
 		border-color: transparent #5F89C7 transparent transparent;
 	}
 
-	.carousel-button-right {
-		border-width: 5em 0 5em 3em;
+	.carousel-button-right, .menu-dropdown .carousel-button-right {
+		border-width: 3em 0 3em 1.5em;
 		border-color: transparent transparent transparent #5F89C7;
 	}
 
